@@ -1,16 +1,24 @@
 import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
+import Home from "./pages/Home";
+import Contact from "./components/common/Contact";
+import Catalogue from "./pages/Catalogue";
+import Story from "./pages/Story";
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-text">
-      <h1 className="font-display text-5xl">Cakes & Bake</h1>
-
-      <h2 className="font-heading text-3xl">Made for your sweetest moments</h2>
-
-      <button className="rounded-bakery bg-primary px-6 py-3 text-text shadow-soft hover:bg-primary-hover">
-        Explore our cakes
-      </button>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/catalogue" element={<Catalogue />} />
+        <Route path="/story" element={<Story />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
