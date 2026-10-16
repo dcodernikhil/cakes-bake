@@ -27,6 +27,7 @@ const Catalogue = () => {
   // Keep the search input synchronized with browser navigation
   // and category/search links.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSearch(searchParams.get("search") || "");
   }, [searchParams]);
 
@@ -83,6 +84,7 @@ const Catalogue = () => {
   useEffect(() => {
     const controller = new AbortController();
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     loadProducts(controller.signal);
 
     return () => controller.abort();
